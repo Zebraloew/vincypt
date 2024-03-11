@@ -1,4 +1,9 @@
-#!/usr/bin/env python3
+#!/Users/zebralow/openai-env/bin/python3
+# this above point to the virtual environment and enables global usage
+"""
+This is a description :D Zerbraleow
+"""
+
 import sys
 from openai import OpenAI
 

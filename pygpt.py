@@ -1,4 +1,6 @@
-import openai
+from openai import OpenAI
+
+client = OpenAI()
 
 # Assuming you have set your OPENAI_API_KEY in your environment variables,
 # otherwise, you can set it directly in your script as follows:
@@ -7,10 +9,8 @@ import openai
 prompt="What is a good promt?"
 addendum="Answer in twenty words"
 
-response = openai.ChatCompletion.create(
-    model="gpt-4",
-    messages=[{"role": "user", "content": prompt + addendum}]
-)
+response = client.chat.completions.create(model="gpt-4",
+messages=[{"role": "user", "content": prompt + addendum}])
 
 # Print each part of the response
 if response.choices:

@@ -4,7 +4,7 @@ from typing import Final
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 from openai import OpenAI
-from local_api import load_zsh_and_get_api_key as get_api
+from local_api import load_shell_and_get_api_key as get_api
 
 client = OpenAI(api_key=get_api('$OPENAI_API_KEY'))
 TOKEN: Final = get_api('$vincypt_http_api')

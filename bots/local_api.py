@@ -1,20 +1,31 @@
 import os
 import subprocess
 
-def load_zsh_and_get_api_key(key):
-    # Command to source .zshrc and print the API_KEY environment variable
-    command = 'source ~/.zshrc && echo ' + key 
-    result = subprocess.run(['zsh', '-c', command], capture_output=True, text=True)
+def load_shell_and_get_api_key(key):
+    # Try using zsh first
+    command = f"source ~/.zshrc && echo {key}"
+    try:
+        result = subprocess.run(['zsh', '-c', command], capture_output=True, text=True, check=True)
+        if result.stdout:
+            return result.stdout.strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        print("zsh failed. Falling back to bash...")
 
-    if result.stdout:
-        # print("API Key retrieved successfully:", result.stdout.strip())
-        return result.stdout.strip()
-    else:
-        print("Failed to retrieve API Key. Error:", result.stderr.strip())
-        return result.stderr.strip()
+    # Fallback to bash
+    command = f"source ~/.bashrc && echo {key}"
+    try:
+        result = subprocess.run(['bash', '-c', command], capture_output=True, text=True, check=True)
+        if result.stdout:
+            return result.stdout.strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        print("Failed to retrieve API Key using both zsh and bash.")
+        return None
 
 if __name__ == "__main__":
-    # request = '$OPENAI_API_KEY'
+    # Define the environment variable to fetch
     request = '$vincypt_http_api'
-    key = load_zsh_and_get_api_key(request)
-    print(f"The key for {request} is:\n {key}")
+    key = load_shell_and_get_api_key(request)
+    if key:
+        print(f"The key for {request} is:\n{key}")
+    else:
+        print(f"Unable to retrieve the key for {request}.")

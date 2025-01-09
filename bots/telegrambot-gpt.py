@@ -1,13 +1,27 @@
 #!/Users/zebralow/Library/Mobile Documents/com~apple~CloudDocs/jCloud Drive/Projekte/Proposal/proposal/telegram/bin/python
-
+import os
 from typing import Final
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 from openai import OpenAI
 from local_api import load_shell_and_get_api_key as get_api
 
-client = OpenAI(api_key=get_api('$OPENAI_API_KEY'))
-TOKEN: Final = get_api('$vincypt_http_api')
+# API Keys Retrieval
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY") or get_api('$OPENAI_API_KEY')
+TELEGRAM_BOT_TOKEN = os.getenv("vincypt_http_api") or get_api('$vincypt_http_api')
+
+if not OPENAI_API_KEY:
+    raise ValueError("OPENAI_API_KEY is missing! Ensure it's set in the environment or via your key loader.")
+if not TELEGRAM_BOT_TOKEN:
+    raise ValueError("TELEGRAM_BOT_TOKEN is missing! Ensure it's set in the environment or via your key loader.")
+
+try:
+    client = OpenAI(api_key=OPENAI_API_KEY)
+except Exception as e:
+    raise RuntimeError(f"Failed to initialize OpenAI client: {e}")
+
+TOKEN: Final = TELEGRAM_BOT_TOKEN
+
 BOT_USERNAME: Final = "@vincypt_bot"
 
 # Dictionary to store conversation contexts

@@ -77,10 +77,11 @@ def main() -> None:
     print("Booting Bot")
     application = Application.builder().token(TOKEN).build()
 
+    print("VINCY LIVES!")
     application.add_handler(CommandHandler("start", start))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, respond))
 
     application.run_polling()
-    print("VINCY LIVES!")
+    print("   -.- VINCY sleeps!")
 if __name__ == '__main__':
     main()

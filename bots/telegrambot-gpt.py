@@ -81,6 +81,6 @@ def main() -> None:
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, respond))
 
     application.run_polling()
-
+    print("VINCY LIVES!")
 if __name__ == '__main__':
     main()

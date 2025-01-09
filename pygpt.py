@@ -6,7 +6,7 @@ client = OpenAI()
 # otherwise, you can set it directly in your script as follows:
 # openai.api_key = 'your_api_key_here'
 
-prompt="What is a good promt?"
+prompt="What is a good prompt?"
 addendum="Answer in twenty words"
 
 response = client.chat.completions.create(model="gpt-4",

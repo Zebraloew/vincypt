@@ -2,10 +2,6 @@ from openai import OpenAI
 
 client = OpenAI()
 
-# Assuming you have set your OPENAI_API_KEY in your environment variables,
-# otherwise, you can set it directly in your script as follows:
-# openai.api_key = 'your_api_key_here'
-
 prompt="What is a good prompt?"
 addendum="Answer in twenty words"
 

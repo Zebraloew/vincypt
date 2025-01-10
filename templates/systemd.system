@@ -1,0 +1,16 @@
+╰─❯ vim vincy.service 
+
+[Unit]
+Description=Vincy
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/var/www/python/vincypt/bots
+ExecStart=/var/www/python/vincypt/venv/bin/python3 telegrambot-gpt.py
+Environment=vincypt_http_api=
+Environment=OPENAI_API_KEY=
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -73,6 +73,7 @@ async def on_message(message):
         use the server 85.215.238.147
         root user is root
         standard user is newuser
+        the api keys are in the .bash_aliases file and systemd dot system files but should moved to an .env file         
         nginx runs a page in var/www/html
         python code is in /var/www/python running with systemd
         shell is zsh with oh-my-zsh and powerlevel10k
@@ -81,6 +82,7 @@ async def on_message(message):
         use a lot comments but keep it short and simple
         add a file description to each file
         suggest file names and directory structures according to best practices
+        
 
         """
         # Format history for GPT: Include only the 'content' from each message in the history

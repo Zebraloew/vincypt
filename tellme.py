@@ -1,3 +1,5 @@
+# this is a gpt that is accessed via the terminal locally
+
 #!/Users/zebralow/openai-env/bin/python3
 # this above point to the virtual environment and enables global usage
 """

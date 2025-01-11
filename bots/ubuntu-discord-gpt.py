@@ -5,7 +5,8 @@
 import os
 import discord
 from discord.ext import commands
-from openai import OpenAI
+# async open ai because discord heartbeat was not working
+from openai import AsyncOpenAI
 from local_api import load_shell_and_get_api_key as get_api
 
 # API Keys Retrieval
@@ -18,7 +19,7 @@ if not DISCORD_BOT_TOKEN2:
     raise ValueError("DISCORD_BOT_TOKEN is missing! Ensure it's set in the environment or via your key loader.")
 
 try:
-    client = OpenAI(api_key=OPENAI_API_KEY)
+    client = AsyncOpenAI(api_key=OPENAI_API_KEY)
 except Exception as e:
     raise RuntimeError(f"Failed to initialize OpenAI client: {e}")
 
@@ -96,7 +97,7 @@ async def on_message(message):
                 {"role": "user", "content": " ".join(formatted_history)}
             ]
         )
-        bot_message = await gpt_response.choices[0].message.content 
+        bot_message = gpt_response.choices[0].message.content 
 
         # Append the bot's response to the history
         chat_history.append({"role": "assistant", "content": bot_message})

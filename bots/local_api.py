@@ -1,3 +1,6 @@
+# this is a secure api key loader for the local api
+# this works with systemd and also directly with python from the shell
+
 import os
 import subprocess
 

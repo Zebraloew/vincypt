@@ -1,4 +1,10 @@
-╰─❯ vim vincy.service 
+# this is a systemd service file for the telegrambot-gpt.py script aka vincypt
+# it is necessary to create a systemd service file for the script to run on the server permanently
+
+# INSERT YOUR API KEYS IN THIS FILE
+
+# place it here:
+# /etc/systemd/system/vincy.service
 
 [Unit]
 Description=Vincy

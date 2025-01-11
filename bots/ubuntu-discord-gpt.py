@@ -7,23 +7,29 @@ import discord
 from discord.ext import commands
 # async open ai because discord heartbeat was not working
 from openai import AsyncOpenAI
-from local_api import load_shell_and_get_api_key as get_api
+# this is the updated version of the loader
+from dotenv import load_dotenv
 
-# API Keys Retrieval
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY") or get_api('$OPENAI_API_KEY')
-DISCORD_BOT_TOKEN2 = os.getenv("DISCORD_BOT_TOKEN2") or get_api('$DISCORD_BOT_TOKEN2')
+# Load environment variables from .env file
+load_dotenv()
 
-if not OPENAI_API_KEY:
-    raise ValueError("OPENAI_API_KEY is missing! Ensure it's set in the environment or via your key loader.")
-if not DISCORD_BOT_TOKEN2:
-    raise ValueError("DISCORD_BOT_TOKEN is missing! Ensure it's set in the environment or via your key loader.")
+# Retrieve API keys
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+DISCORD_BOT_TOKEN2 = os.getenv("DISCORD_BOT_TOKEN2")
 
+# Check if keys are loaded
+if not OPENAI_API_KEY or not DISCORD_BOT_TOKEN2:
+    raise ValueError("Missing API keys. Ensure .env file is properly configured.")
+
+print("API keys loaded successfully!")  # Debugging
+
+# Initialize OpenAI client
 try:
     client = AsyncOpenAI(api_key=OPENAI_API_KEY)
 except Exception as e:
     raise RuntimeError(f"Failed to initialize OpenAI client: {e}")
 
-# Initialize bot
+# Initialize Discord bot
 intents = discord.Intents.default()
 intents.messages = True
 intents.message_content = True

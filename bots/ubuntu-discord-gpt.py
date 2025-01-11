@@ -89,14 +89,14 @@ async def on_message(message):
         formatted_history = [message['content'] for message in chat_history]
 
         # Generate a response from ChatGPT
-        gpt_response = client.chat.completions.create(
+        gpt_response = await client.chat.completions.create(
             model="gpt-4-turbo",
             messages=[
                 {"role": "system", "content": gpt_role},
                 {"role": "user", "content": " ".join(formatted_history)}
             ]
         )
-        bot_message = gpt_response.choices[0].message.content + " 😺"
+        bot_message = await gpt_response.choices[0].message.content 
 
         # Append the bot's response to the history
         chat_history.append({"role": "assistant", "content": bot_message})

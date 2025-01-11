@@ -1,6 +1,7 @@
 #
-# VINCY Discord Bot
-#
+# Expert-AI for Ubuntu Server Discord Bot
+# based on Vincy's discord bot :: vincy_discord.py
+
 import os
 import discord
 from discord.ext import commands
@@ -9,11 +10,11 @@ from local_api import load_shell_and_get_api_key as get_api
 
 # API Keys Retrieval
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY") or get_api('$OPENAI_API_KEY')
-DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN") or get_api('$DISCORD_BOT_TOKEN')
+DISCORD_BOT_TOKEN2 = os.getenv("DISCORD_BOT_TOKEN2") or get_api('$DISCORD_BOT_TOKEN2')
 
 if not OPENAI_API_KEY:
     raise ValueError("OPENAI_API_KEY is missing! Ensure it's set in the environment or via your key loader.")
-if not DISCORD_BOT_TOKEN:
+if not DISCORD_BOT_TOKEN2:
     raise ValueError("DISCORD_BOT_TOKEN is missing! Ensure it's set in the environment or via your key loader.")
 
 try:
@@ -79,4 +80,4 @@ async def on_message(message):
         await message.channel.send("Oops, something went wrong while fetching the response. Please try again!")
 
 # Run the bot
-bot.run(DISCORD_BOT_TOKEN)
+bot.run(DISCORD_BOT_TOKEN2)

@@ -1,3 +1,5 @@
+# testing basic gpt behaviour in python
+
 from openai import OpenAI
 
 client = OpenAI()

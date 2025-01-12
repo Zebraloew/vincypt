@@ -23,8 +23,6 @@ def convert_datetime(val):
 # Database file
 DB_FILE = os.path.expanduser("~/.gpt_shell/conversation_history.db")
 
-DB_FILE = os.path.expanduser("~/.gpt_shell/conversation_history.db")
-
 # Ensure the directory exists
 DB_DIR = os.path.dirname(DB_FILE)
 os.makedirs(DB_DIR, exist_ok=True)

@@ -27,7 +27,7 @@ if not os.path.exists(DB_FILE):
     conn.close()
     print(f"Datenbank '{DB_FILE}' erfolgreich erstellt!")
 else:
-    print(f"Datenbank '{DB_FILE}' existiert bereits.")
+    print("•")
 
 
 # Register the adapter

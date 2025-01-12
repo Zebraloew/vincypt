@@ -1,12 +1,17 @@
 import sqlite3
+import os
 
-DB_FILE = "/opt/venvs/gpt_env/conversation_history.db"
+DB_FILE = os.path.expanduser("~/venvs/gpt_shell/conversation_history.db")
 
 def ensure_table_exists():
     """Ensure the necessary tables exist in the SQLite database."""
-    conn = sqlite3.connect(DB_FILE)  # Create a new connection for this check
-    cursor = conn.cursor()
-
+    try:
+     conn = sqlite3.connect(DB_FILE, detect_types=sqlite3.PARSE_DECLTYPES)
+     cursor = conn.cursor()
+    except sqlite3.Error as e:
+     print(f"Error connecting to SQLite database: {e}")
+     exit(1)
+    
     # Create `users` table if it doesn't exist
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS users (

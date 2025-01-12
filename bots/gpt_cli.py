@@ -1,6 +1,6 @@
 #!/opt/venvs/gpt_env/bin/python
 
-# GPT CLI with a database as memory
+# # GPT CLI with a database as memory
 
 import openai
 import sqlite3
@@ -16,21 +16,39 @@ def convert_datetime(val):
     """Convert ISO 8601 string to datetime.datetime object."""
     return datetime.fromisoformat(val.decode())
 
+# Database file
+DB_FILE = os.path.expanduser("~/venvs/gpt_shell/conversation_history.db")
+
+# Prüfen, ob die Datenbank existiert
+if not os.path.exists(DB_FILE):
+    print(f"Datenbank '{DB_FILE}' existiert nicht. Erstelle neue Datenbank...")
+    # Verbindung zur neuen Datenbank erstellen
+    conn = sqlite3.connect(DB_FILE)
+    conn.close()
+    print(f"Datenbank '{DB_FILE}' erfolgreich erstellt!")
+else:
+    print(f"Datenbank '{DB_FILE}' existiert bereits.")
+
+
 # Register the adapter
 sqlite3.register_adapter(datetime, adapt_datetime_iso)
 
 # Register the converter
 sqlite3.register_converter('timestamp', convert_datetime)
 
-# Database file
-DB_FILE = "/opt/venvs/gpt_env/conversation_history.db"
-
 # Load OpenAI API key
 openai.api_key = os.getenv("OPENAI_API_KEY")
+if not openai.api_key:
+    print("Error: OPENAI_API_KEY environment variable not set.")
+    exit(1)
 
 # Connect to the SQLite database
-conn = sqlite3.connect(DB_FILE, detect_types=sqlite3.PARSE_DECLTYPES)
-cursor = conn.cursor()
+try:
+    conn = sqlite3.connect(DB_FILE, detect_types=sqlite3.PARSE_DECLTYPES)
+    cursor = conn.cursor()
+except sqlite3.Error as e:
+    print(f"Error connecting to SQLite database: {e}")
+    exit(1)
 
 # Ensure the table exists
 def ensure_table_exists():

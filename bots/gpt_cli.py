@@ -7,6 +7,10 @@ import sqlite3
 import os
 from argparse import ArgumentParser
 from datetime import datetime, timezone
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 def adapt_datetime_iso(val):
     """Adapt datetime.datetime to ISO 8601 string."""

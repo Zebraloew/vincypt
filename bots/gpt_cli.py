@@ -17,17 +17,26 @@ def convert_datetime(val):
     return datetime.fromisoformat(val.decode())
 
 # Database file
-DB_FILE = os.path.expanduser("~/venvs/gpt_shell/conversation_history.db")
+DB_FILE = os.path.expanduser("~/.gpt_shell/conversation_history.db")
 
-# Prüfen, ob die Datenbank existiert
-if not os.path.exists(DB_FILE):
-    print(f"Datenbank '{DB_FILE}' existiert nicht. Erstelle neue Datenbank...")
-    # Verbindung zur neuen Datenbank erstellen
-    conn = sqlite3.connect(DB_FILE)
-    conn.close()
-    print(f"Datenbank '{DB_FILE}' erfolgreich erstellt!")
-else:
-    print("•")
+DB_FILE = os.path.expanduser("~/.gpt_shell/conversation_history.db")
+
+# Ensure the directory exists
+DB_DIR = os.path.dirname(DB_FILE)
+os.makedirs(DB_DIR, exist_ok=True)
+
+# Create database if it doesn't exist
+try:
+    if not os.path.exists(DB_FILE):
+        print(f"Datenbank '{DB_FILE}' existiert nicht. Erstelle neue Datenbank...")
+        conn = sqlite3.connect(DB_FILE)
+        conn.close()
+        print(f"Datenbank '{DB_FILE}' erfolgreich erstellt!")
+    else:
+        print("𐦞", end=" " )
+except sqlite3.Error as e:
+    print(f"Fehler beim Erstellen der Datenbank: {e}")
+    exit(1)
 
 
 # Register the adapter

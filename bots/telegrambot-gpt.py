@@ -1,5 +1,3 @@
-#!/Users/zebralow/Library/Mobile Documents/com~apple~CloudDocs/jCloud Drive/Projekte/Proposal/proposal/telegram/bin/python
-#
 #  VINCY PT
 #
 #

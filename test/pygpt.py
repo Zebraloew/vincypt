@@ -1,6 +1,9 @@
 # testing basic gpt behaviour in python
 
 from openai import OpenAI
+from dotenv import load_dotenv
+load_dotenv()
+
 
 client = OpenAI()
 

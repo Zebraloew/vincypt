@@ -1,4 +1,4 @@
-# This is just testing the argparse function for a shell 
+# This is just testing the argparse function for a shell script
 
 #!/usr/bin/env python3
 import argparse

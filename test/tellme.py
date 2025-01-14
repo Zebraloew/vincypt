@@ -1,10 +1,8 @@
-# this is a gpt that is accessed via the terminal locally
-
 #!/Users/zebralow/openai-env/bin/python3
-# this above point to the virtual environment and enables global usage
-"""
-This is a description :D Zerbraleow
-"""
+# shebang line to specify the python interpreter to use
+
+# description
+# this is a gpt that is accessed via the terminal locally
 
 import sys
 from openai import OpenAI
@@ -16,13 +14,9 @@ input_text = ""
 if len(sys.argv) > 1:
     input_text = " ".join(sys.argv[1:])  # Join all arguments into one string
     print(f"★")
-    # Your logic here to process the input_text
 else:
     print("Please provide an input.")
 
-# Assuming you have set your OPENAI_API_KEY in your environment variables,
-# otherwise, you can set it directly in your script as follows:
-# openai.api_key = 'your_api_key_here'
 
 ### To make it work in the Terminal
 ### Further instructions on the bottom
@@ -35,7 +29,7 @@ try:
     response = client.chat.completions.create(
         model="gpt-4",
         messages=[{"role": "user", "content": prompt + addendum}],
-        temperature=0.7,
+        temperature=0.9,
         max_tokens=256,
         top_p=1,
         frequency_penalty=0,
@@ -50,8 +44,12 @@ except Exception as e:
     print(f"An error occurred: {e}")
 
 
+# this enables the use of the script in the terminal
+# just type tellme and then your input in the terminal
 """
-
-chmod +x tellme.py && sudo ln -s "/Users/zebralow/Library/Mobile Documents/com~apple~CloudDocs/jCloud Drive/codecloud/gpt/tellme.py" /usr/local/bin/tellme
+chmod +x tellme.py && \
+sudo rm /usr/local/bin/tellme && \
+sudo ln -s "$(pwd)/tellme.py" /usr/local/bin/tellme
 
 """
+  

@@ -2,8 +2,7 @@
 # this is just testing the telegram api
 # without gpt
 """
-HTTP API:
-7032664253:AAEhL-MHWPr1B_htHHCUNRCML_ckOLlIhB0
+HTTP API:7032664253:AAEhL-MHWPr1B_htHHCUNRCML_ckOLlIhB0
 """
 
 from typing import Final

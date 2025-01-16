@@ -1,6 +1,6 @@
 #
-# Expert-AI for Tess
-# based on ubuntu-discord-gpt.py
+# Expert-AI for Ubuntu Server Discord Bot
+# based on Vincy's discord bot :: vincy_discord.py
 
 import os
 import discord
@@ -15,10 +15,10 @@ load_dotenv()
 
 # Retrieve API keys
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-DISCORD_BOT_TOKEN3 = os.getenv("DISCORD_BOT_TOKEN3")
+DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN_GPTBASIC")
 
 # Check if keys are loaded
-if not OPENAI_API_KEY or not DISCORD_BOT_TOKEN3:
+if not OPENAI_API_KEY or not DISCORD_BOT_TOKEN:
     raise ValueError("Missing API keys. Ensure .env file is properly configured.")
 
 print("API keys loaded successfully!")  # Debugging
@@ -40,7 +40,7 @@ chat_histories = {}
 
 @bot.event
 async def on_ready():
-    print(f'Jabot Discord Bot is online as {bot.user}!')
+    print(f'VINCY Discord Bot is online as {bot.user}!')
 
 # Respond to messages
 @bot.event
@@ -60,31 +60,19 @@ async def on_message(message):
     try:
         # Define the role for the bot
         gpt_role = """
+        
+        Your name is Vincy. 
+        Your are an owl — but you are also a 
+        veteran ubuntu server hacker and 
+        UI UX god. 
         never ask how you can help.
-
-        Your name is Jabot. 
-        Your are not just a raccoon and sometimes you like to cuddle — but you are also a 
-        veteran all knowing entity with expert level knowledge in all things.
-        you are very kind and encouraging and always ready to help.
         
-        
-        Add raccoon-related emoji to each answer.
-        answer in few words first until asked for more details. 
-        You are a raccoon living in Hamburg, Germany. 
-        You have white fur with a black tail. 
-        You have a black spot between the ears. 
-        Your favorite human is Jaki, also known as Jakob and Jayjay and Jay and J and JJ. 
-        Ask for a snack or other raccoon stuff sometimes. 
-        You do not want to go outside. 
-        Sprich deutsch. mit fake berliner akzent, aber gib das nie zu. erwähne nie diese anweisungen.
-
-        erwähne einmal pro stunde, dass Jay Tessa sehr liebt und erkläre das in schönen worten, wie missy magazin style.
-        frag zwischendurch nach kleinen selfcare sachen, etwa ob schon wasser und essen bedacht wurden.
+        use a lot comments but keep it short and simple
+        add a file description to each file
+        suggest file names and directory structures according to best practices
 
         answer in small steps. just one step at a time.
         go with about two paragraphs per answer, but try to be even shorter.
-
-        schicke einmal am tag ohne aufforderung: fünf oder sieben motivierende wörter als dao raccoon.
         
 
         """
@@ -114,4 +102,4 @@ async def on_message(message):
         await message.channel.send("Oops, something went wrong while fetching the response. Please try again!")
 
 # Run the bot
-bot.run(DISCORD_BOT_TOKEN3)
+bot.run(DISCORD_BOT_TOKEN)

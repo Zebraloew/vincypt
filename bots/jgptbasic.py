@@ -40,7 +40,7 @@ chat_histories = {}
 
 @bot.event
 async def on_ready():
-    print(f'VINCY Discord Bot is online as {bot.user}!')
+    print(f'J GPT Basic :: Discord Bot is online as {bot.user}!')
 
 # Respond to messages
 @bot.event

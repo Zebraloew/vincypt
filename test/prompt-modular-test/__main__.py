@@ -3,6 +3,12 @@ import json
 with open("prompt_modules.json", "r") as file:
     prompt_modules = json.load(file)
 
+# create a prompt that combines some modules
+active_prompt_modules=("expert","wirk-activist","emojies")
+promptpecomposed=""
+for module in active_prompt_modules:
+    promptpecomposed+=prompt_modules[module]    
 
-prompt="OH HAI\n You look great today!"+prompt_modules["personality-vincy"]+prompt_modules["expert"]+prompt_modules["emojies"]
+prompt=promptpecomposed
+
 print(prompt)

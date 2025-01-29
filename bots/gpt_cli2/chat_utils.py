@@ -13,7 +13,7 @@ def chat_with_gpt(conn, prompt: str):
 
     # Call GPT API
     response = openai.chat.completions.create(
-        model="gpt-4-turbo",
+        model="gpt-4o",
         messages=history
     )
     bot_reply = response.choices[0].message.content

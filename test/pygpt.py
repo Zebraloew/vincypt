@@ -10,7 +10,7 @@ client = OpenAI()
 prompt="Tell me encouraging words about how well i am doing programming"
 addendum="Answer in twenty words"
 
-response = client.chat.completions.create(model="gpt-4",
+response = client.chat.completions.create(model="gpt-4o",
 messages=[{"role": "user", "content": prompt + addendum}])
 
 # Print each part of the response

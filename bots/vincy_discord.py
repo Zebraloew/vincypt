@@ -83,7 +83,7 @@ async def on_message(message):
 
         # Generate a response from ChatGPT
         gpt_response = client.chat.completions.create(
-            model="gpt-4-turbo",
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": gpt_role},
                 {"role": "user", "content": " ".join(formatted_history)}

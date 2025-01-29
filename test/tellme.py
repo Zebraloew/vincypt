@@ -27,7 +27,7 @@ addendum = ". Answer in at most twenty words. Add three emojies."
 
 try:
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o",
         messages=[{"role": "user", "content": prompt + addendum}],
         temperature=0.9,
         max_tokens=256,

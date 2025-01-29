@@ -79,7 +79,7 @@ async def respond(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
         # Generate a response from ChatGPT including the formatted history
         gpt_response = client.chat.completions.create(
-            model="gpt-4-turbo",
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": gpt_role},
                 {"role": "user", "content": " ".join(formatted_history)}

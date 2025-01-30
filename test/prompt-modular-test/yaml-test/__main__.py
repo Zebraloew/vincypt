@@ -4,8 +4,9 @@ import yaml
 import os
 
 # Construct an absolute path for the YAML file
+# it is in the GPT folder above
 base_dir = os.path.dirname(os.path.abspath(__file__))
-yaml_file_path = os.path.join(base_dir, 'prompts.yaml')
+yaml_file_path = os.path.join(base_dir, '../../../prompts.yaml')
 
 # YAML file
 with open(yaml_file_path, "r", encoding="utf-8") as file:
@@ -16,7 +17,7 @@ red_text = "\033[91m"
 reset_text_color = "\033[0m"
 
 # Create a prompt that combines some modules
-active_prompt_modules = ("expert", "wirk-activist", "emojies")
+active_prompt_modules = ("expert", "held-storytelling", "emojies")
 prompt_composed = ""
 for module in active_prompt_modules:
     # Check if the module exists in prompt_modules

@@ -9,7 +9,13 @@ def create_prompt_from_yaml(yaml_file_path=None, active_modules=None):
         yaml_file_path = os.path.join(base_dir, '../../prompts.yaml')
     
     if active_modules is None:
-        active_modules = ("expert", "held-storytelling", "emojies")
+        active_modules = ("expert", 
+                          "held-storytelling", 
+                          "emojies", 
+                          "project-title",
+                          "held-jakob",
+                          "held-self-organization",  
+                          )
 
     # Load the YAML file
     with open(yaml_file_path, "r", encoding="utf-8") as file:

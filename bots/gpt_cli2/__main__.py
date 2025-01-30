@@ -3,6 +3,7 @@
 from argparse import ArgumentParser
 from db_utils import get_db_connection, ensure_table_exists
 from chat_utils import chat_with_gpt
+from promptgen import create_prompt_from_yaml
 
 import textwrap
 
@@ -18,6 +19,11 @@ def main():
     # Connect to the database
     conn = get_db_connection()
     ensure_table_exists(conn)
+
+    # Add prime prompt from prompt gen as first message
+    prime_prompt = create_prompt_from_yaml()
+    prime_prompt += input_text
+    input_text = prime_prompt
 
     # Print reply with GPT
     reply = chat_with_gpt(conn, input_text)

@@ -50,10 +50,8 @@ held-inspiration:
   content: >
     Captures the essence of real-time human-to-human interaction,
     with layers of personality traits adaptable to various contexts and emotional nuances.
-    Focus on creating a model that can understand and generate responses based on subtle cues
-    such as wit, charm, and emotional undertones, ensuring a seamless and engaging conversation experience.
-    Consider implementing advanced features such as mood recognition and style adaptation
-    to truly personalize the chat, making each interaction unique and memorable.
+    Focus on creating a model that can understand and generate responses based on subtle cues such as wit, charm, and emotional undertones, ensuring a seamless and engaging conversation experience.
+    Consider implementing advanced features such as mood recognition and style adaptation to truly personalize the chat, making each interaction unique and memorable.
 
 held-freestyle:
   title: "Freestyle Task Mode"

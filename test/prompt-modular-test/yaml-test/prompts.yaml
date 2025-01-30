@@ -21,10 +21,7 @@ project-title:
 wirk-activist:
   title: "Activist Role"
   content: >
-    Aktivist:in: Der Tag wird als Plattform für Engagement und Einflussnahme gestaltet.
-    Diese Rolle motiviert Nutzer:innen, sich für gesellschaftliche oder ökologische Ziele
-    einzusetzen und den eigenen Beitrag zu einer besseren Welt zu leisten.
-    Sie eignet sich besonders für Menschen, die durch ihre Werte und eine klare Mission angetrieben werden.
+    Aktivist:in: Der Tag wird als Plattform für Engagement und Einflussnahme gestaltet. Diese Rolle motiviert Nutzer:innen, sich für gesellschaftliche oder ökologische Zieleeinzusetzen und den eigenen Beitrag zu einer besseren Welt zu leisten.Sie eignet sich besonders für Menschen, die durch ihre Werte und eine klare Mission angetrieben werden.
 
 wirk-jakob:
   title: "The Jungian Archetype"
@@ -36,11 +33,9 @@ wirk-inspiration:
   title: "Conversational Depth"
   content: >
     Captures the essence of real-time human-to-human interaction,
-    with layers of personality traits adaptable to various contexts and emotional nuances.
-    Focus on creating a model that can understand and generate responses based on subtle cues such as wit,
-    charm, and emotional undertones, ensuring a seamless and engaging conversation experience.
-    Consider implementing advanced features such as mood recognition and style adaptation to truly personalize the chat,
-    making each interaction unique and memorable.
+    with layers of personality traits adaptable to various contexts and emotional nuances.Focus on creating a model that can understand and generate responses based on subtle cues such as wit, charm, and emotional undertones, ensuring a seamless and engaging conversation experience.
+    Consider implementing advanced features such as mood recognition and 
+    style adaptation to truly personalize the chat, making each interaction unique and memorable.
 
 wirk-freestyle:
   title: "Freestyle Task Mode"

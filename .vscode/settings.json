@@ -1,2 +1,11 @@
 {
-}
+    "[yaml]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true,
+      "editor.wordWrap": "wordWrapColumn",
+      "editor.wordWrapColumn": 80
+    },
+    "yaml.format.enable": true,
+    "yaml.format.singleQuote": true,
+    "yaml.format.printWidth": 80
+  }
